@@ -1,0 +1,5 @@
+FROM python:3.11-slim
+WORKDIR /app
+RUN if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+COPY . .
+CMD ["python","main.py"]
