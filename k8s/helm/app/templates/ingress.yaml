@@ -4,6 +4,7 @@ metadata:
   name: ghostcmd-ingress
   namespace: {{ .Values.namespace }}
 spec:
+  ingressClassName: nginx        # <–– вот эта строка
   rules:
     - host: {{ .Values.ingress.host }}
       http:
