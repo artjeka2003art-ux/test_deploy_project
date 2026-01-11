@@ -18,5 +18,6 @@ spec:
       containers:
         - name: ghostcmd-container
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.service.port }}
