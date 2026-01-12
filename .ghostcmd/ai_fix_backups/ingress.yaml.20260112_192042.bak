@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ghostcmd-ingress
+  namespace: {{ .Values.namespace }}
+spec:
+  ingressClassName: nginx        # <–– вот эта строка
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ghostcmd-service
+                port:
+                  number: {{ .Values.service.port }}
